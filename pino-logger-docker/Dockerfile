@@ -3,8 +3,8 @@ USER root
 RUN useradd --uid 1000 --gid 0 --shell /bin/bash --create-home node 
 RUN npm -v
 WORKDIR pino-logger-docker
-ADD ./dist /project/dist
-ADD ./project /project
+COPY ./dist/ /project/dist
+COPY ./project/ /project
 RUN chown -hR root:0 /project
 RUN chown -hR node:0 /project \
     && chmod -R g=u /project
