@@ -2,6 +2,7 @@ FROM registry.access.redhat.com/ubi8/nodejs-12:1-59
 USER root
 RUN useradd --uid 1000 --gid 0 --shell /bin/bash --create-home node 
 RUN npm -v
+WORKDIR pino-logger-docker
 ADD ./dist /project/dist
 ADD ./project /project
 RUN chown -hR root:0 /project
